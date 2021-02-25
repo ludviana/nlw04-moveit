@@ -4,6 +4,9 @@ import { CompletleChallenges } from '../components/CompletedChallenges'
 import { CountDown } from '../components/CountDown';
 import { ChallengeBox } from '../components/ChallengeBox';
 
+import { CountDownProvider } from '../context/CountDownContext'
+
+
 import Head from 'next/head'
 
 import styles from '../styles/pages/Home.module.css'
@@ -16,16 +19,18 @@ function App() {
       </Head>
 
       <ExperienceBar/>
-      <section>
-        <div >
-          <Profile/>
-          <CompletleChallenges/>
-          <CountDown/>
-        </div>
-        <div>
-          <ChallengeBox/>
-        </div>
-      </section>
+      <CountDownProvider>
+        <section>
+          <div >
+            <Profile/>
+            <CompletleChallenges/>
+            <CountDown/>
+          </div>
+          <div>
+            <ChallengeBox/>
+          </div>
+        </section>
+      </CountDownProvider>
     </div>
   );
 }
